@@ -1,10 +1,12 @@
 import React from 'react';
+import { addDb } from '../Utilities/Utilities';
 import './Show.css';
 
 const Show = (props) => {
     const {id,name,price} = props.productDataSending;
     const addToCart = (id) =>{
-        console.log('Product Added',id)
+        // console.log('Product Added',id)
+        addDb(id);
     }
     return (
         <div className="product-area">
