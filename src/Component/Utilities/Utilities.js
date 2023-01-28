@@ -1,24 +1,27 @@
 const addDb = (id) =>{
-    let shoppingCart = {};
-   
-    const storedCard = localStorage.getItem('shopping-cart');
-    if(storedCard){
-        shoppingCart = JSON.parse(storedCard)
-    }else{
-        shoppingCart = {};
-    }
+    let shoppingCart ={}
+    
 
-    // const quantity = localStorage.getItem(id);
+    const storedCart = localStorage.getItem('shopping-cart')
+    if(storedCart){
+        shoppingCart=JSON.parse(storedCart)
+    }else{
+        shoppingCart={}
+    }
+    
     const quantity = shoppingCart[id]
     if(quantity){
-       const newQuantity = quantity + 1;
-       shoppingCart[id] = newQuantity;
-    //    localStorage.setItem(id,newQuantity);
+        const newQty = shoppingCart[id] + 1;
+        shoppingCart[id] = newQty;
+        // localStorage.setItem(id,newQty);
     }else{
-        shoppingCart[id] = 1;
         // localStorage.setItem(id,1)
+        shoppingCart[id] = 1;
     }
-    localStorage.setItem('shopping-cart',JSON.stringify(shoppingCart))
+
+   
+    localStorage.setItem('shopping-cart',JSON.stringify(shoppingCart));
 }
-export { addDb };
+
+export { addDb }
 
