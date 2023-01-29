@@ -1,7 +1,6 @@
 const addDb = (id) =>{
     let shoppingCart ={}
     
-
     const storedCart = localStorage.getItem('shopping-cart')
     if(storedCart){
         shoppingCart=JSON.parse(storedCart)
@@ -9,7 +8,7 @@ const addDb = (id) =>{
         shoppingCart={}
     }
     
-    const quantity = shoppingCart[id]
+    const quantity = shoppingCart[id]//This is not Array [Object Access Way]
     if(quantity){
         const newQty = shoppingCart[id] + 1;
         shoppingCart[id] = newQty;
@@ -19,7 +18,6 @@ const addDb = (id) =>{
         shoppingCart[id] = 1;
     }
 
-   
     localStorage.setItem('shopping-cart',JSON.stringify(shoppingCart));
 }
 
