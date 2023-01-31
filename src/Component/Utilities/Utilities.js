@@ -8,14 +8,14 @@ const addDb = (id) =>{
         shoppingCart={}
     }
     
-    const quantity = shoppingCart.id//This is not Array [Object Access Way]
+    const quantity = shoppingCart[id]
     if(quantity){
-        const newQty = shoppingCart.id + 1;
-        shoppingCart.id = newQty;
+        const newQty = shoppingCart[id] + 1; //This is not Array this is indexing
+        shoppingCart[id] = newQty;
         // localStorage.setItem(id,newQty);
     }else{
         // localStorage.setItem(id,1)
-        shoppingCart.id = 1;
+        shoppingCart[id] = 1;
     }
 
     localStorage.setItem('shopping-cart',JSON.stringify(shoppingCart));
